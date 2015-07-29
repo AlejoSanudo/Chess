@@ -1,16 +1,5 @@
 #### run rspec spec/pieces_spec.rb (full path)
 require 'spec_helper'
-require './pieces'
-
-describe Pawn do
-	before do
-		@pawn = Pawn.new('white')
-	end
-
-	it "should have a white color" do
-		expect(@pawn.color).to eq('white')
-	end
-end
 
 describe Rook do
 	before do
