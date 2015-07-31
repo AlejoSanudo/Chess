@@ -10,10 +10,11 @@
 # individual file that may not need all of that loaded. Instead, consider making
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
-# it.
+# it. 
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
+# require 'rspec-core'
 
 require_relative '../Piece'
 require_relative '../Pawn'
@@ -23,7 +24,9 @@ require_relative '../Knight'
 require_relative '../Queen'
 require_relative '../King'
 require_relative '../Board'
-
+require_relative '../methods'
+require 'pry'
+require 'rspec'
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

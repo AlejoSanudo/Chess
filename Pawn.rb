@@ -1,5 +1,6 @@
+require 'pry'
 require_relative 'spec/spec_helper'
-#\u
+
 class Pawn < Piece
   attr_accessor :icon 
   attr_reader :first_tour
@@ -11,11 +12,13 @@ class Pawn < Piece
   end
 
   def valid_movement?(board, beg_row, beg_col, end_row, end_col)
-    # check the color and standardize by multiplicating by 1 or -1 depending on poisiton of the team, top or bottom, 
+    # check the color and standardize by multiplicating by 1 or -1 depending on position of the team, top or bottom, 
     # relative the the X and Y axis of the board 
-    diff_row = ( end_row - beg_row ) * (@color == 'white' ? 1 : -1)
-    diff_col = ( end_col - beg_col ) * (@color == 'white' ? 1 : -1)
+    # binding.pry
+    diff_row = ( end_row - beg_row ) * (@color == 'white' ? -1 : 1)
+    diff_col = ( end_col - beg_col )# * (@color == 'white' ? -1 : 1)
 
+                                            #wet code
     # first round for this pawn - move forward 2 or 1
     if first_tour
 
