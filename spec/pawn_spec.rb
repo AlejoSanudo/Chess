@@ -4,7 +4,7 @@ describe Pawn do
 	before :each do
 		@pawn = Pawn.new('white')
 		@pawn_b = Pawn.new('black')
-	end
+end
 
 	describe "#new" do
 		it "creates an instance of pawn with a color" do

@@ -27,8 +27,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   pry (~> 0.10)
   rspec (~> 3.3)
 
 BUNDLED WITH
    1.10.6
+=======
+  pry
+  rspec (~> 3.3)
+
+BUNDLED WITH
+   1.10.5
+>>>>>>> fe124c00ee35c946040c2c28b2b8fcd879bf8316

@@ -15,7 +15,7 @@ class Bishop < Piece
   #this checks if the move is diagonal
   if (diff_row).abs == (diff_col).abs
 
-    #this checks which of the four possible diagonal the piece is taking AND it is checking if there are pieces on the way
+    #this checks which of the four possible diagonal the piece is taking AND it is checking if there are pieces in the way
     if diff_row > 0 && diff_col > 0
       start = [beg_row, beg_col]
       while start[0] < end_row
