@@ -1,9 +1,3 @@
-require './Pawn'
-require './Rook'
-require './Knight'
-require './Bishop'
-require './Queen'
-require './King'
 class Board 
   attr_accessor :board
   def initialize(type)
@@ -49,3 +43,4 @@ class Board
     board[0..-33]
   end
 end
+

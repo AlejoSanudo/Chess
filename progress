@@ -1,0 +1,35 @@
+
+Pawn
+  #new
+[32m    creates an instance of pawn with a color[0m
+  #color
+[32m    return the correct color[0m
+  #valid movements?
+    1st tour
+[32m      returns true if move 2 and no piece is found in first or second case[0m
+[32m      returns true if move 1 forward and no piece is found in first case[0m
+[32m      returns true if move forward 1 diagonally and a piece is found in first case[0m
+    2nd tour
+[32m      returns true if move 1 forward and no piece is found in first case[0m
+[32m      returns false if move forward 1 diagonally and a piece is found in that case[0m
+  invalid movement
+    1st tour
+[31m      returns false if it tries to move of 2 forward with a piece in the first case (FAILED - 1)[0m
+      #first_tour
+[32m        should return true since this is the first tour[0m
+
+Failures:
+
+  1) Pawn invalid movement 1st tour returns false if it tries to move of 2 forward with a piece in the first case
+     [31mFailure/Error: [' ', ' ', pawn2_b	, ' ', ' ', ' ', ' ', ' '],[0m
+     [31mNameError:[0m
+     [31m  undefined local variable or method `pawn2_b' for #<RSpec::ExampleGroups::Pawn::InvalidMovement::Nested1stTour:0xa8192b4>[0m
+     [36m# ./spec/pawn_spec.rb:119:in `block (4 levels) in <top (required)>'[0m
+
+Finished in 0.04742 seconds (files took 0.38377 seconds to load)
+[31m9 examples, 1 failure[0m
+
+Failed examples:
+
+[31mrspec ./spec/pawn_spec.rb:114[0m [36m# Pawn invalid movement 1st tour returns false if it tries to move of 2 forward with a piece in the first case[0m
+

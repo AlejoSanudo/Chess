@@ -1,8 +1,3 @@
-require './Piece'
-require './methods'
-require './Board'
-require 'pry'
-
 #pseudoCode
 #test validity of A
 #1) valid input? if so..
