@@ -36,10 +36,20 @@ class Pawn < Piece
     if diff_col == 0
       # forward 1
       if diff_row == 1
-        return !obstacle.is_a?(Piece)
+        if !obstacle.is_a?(Piece)
+          @first_tour = false
+          return true
+        else
+          return false
+        end
       # forward 2
       elsif diff_row == 2 && first_tour
-        return !( board[end_row - 1][end_col].is_a?(Piece) || obstacle.is_a?(Piece) )
+        if !( board[end_row - 1][end_col].is_a?(Piece) || obstacle.is_a?(Piece) )
+          @first_tour = false
+          return true
+        else
+          return false
+        end
       # forward > 2
       else
         return false
@@ -48,7 +58,12 @@ class Pawn < Piece
     elsif diff_col == 1
       # diagonal 1
       if diff_row == 1
-        return ( obstacle.is_a?(Piece) && !self.is_same_team?(obstacle) )
+        if ( obstacle.is_a?(Piece) && !self.is_same_team?(obstacle) )
+          first_tour = false
+          return true
+        else
+          return false
+        end
       else
         return false
       end
