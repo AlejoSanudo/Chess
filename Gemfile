@@ -2,5 +2,5 @@
 source "https://rubygems.org"
 
 gem 'rspec', '~> 3.3'
-gem 'pry'
+gem 'pry', '~> 0.10'
 # gem "rails"
