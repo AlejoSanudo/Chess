@@ -24,18 +24,31 @@ class Pawn < Piece
     obstacle.is_a?(Piece) && !self.is_same_team?(obstacle)
   end
 
-  def valid_movement?(board, beg_row, beg_col, end_row, end_col)
-    # check the color and standardize by multiplicating by 1 or -1 depending on poisiton of the team, top or bottom, 
-    # relative the the X and Y axis of the board 
+  def is_direction_allowed?(diff_row)
+    if @color == 'white'
+      diff_row > 0
+    elsif @color == 'black'
+      diff_row < 0
+    else
+      nil
+    end
+  end
 
-    diff_row = ( end_row - beg_row ) #* (@color == 'white' ? -1 : 1)
-    diff_col = ( end_col - beg_col ) #* (@color == 'white' ? -1 : 1)
+  def valid_movement?(board, beg_row, beg_col, end_row, end_col) 
+    ## factor to standardize the tests below between the white and black team (the top and bottom team)
+    direction = @color == 'white' ? 1 : -1
+
+    diff_row = ( end_row - beg_row )
+    diff_col = ( end_col - beg_col )
+
+    return false unless is_direction_allowed?(diff_row)
+
     obstacle = board[end_row][end_col]
 
     # same column
     if diff_col == 0
       # forward 1
-      if diff_row == 1
+      if diff_row == 1 * direction
         if !obstacle.is_a?(Piece)
           @first_tour = false
           return true
@@ -43,8 +56,9 @@ class Pawn < Piece
           return false
         end
       # forward 2
-      elsif diff_row == 2 && first_tour
-        if !( board[end_row - 1][end_col].is_a?(Piece) || obstacle.is_a?(Piece) )
+      elsif ( diff_row == (2 * direction) ) && first_tour
+        # check if in first case and second case there is no piece
+        if !( board[end_row - direction][end_col].is_a?(Piece) || obstacle.is_a?(Piece) )
           @first_tour = false
           return true
         else
@@ -55,9 +69,9 @@ class Pawn < Piece
         return false
       end
     # different column   
-    elsif diff_col == 1
+    elsif diff_col == 1 * direction
       # diagonal 1
-      if diff_row == 1
+      if diff_row == 1 * direction
         if ( obstacle.is_a?(Piece) && !self.is_same_team?(obstacle) )
           first_tour = false
           return true
@@ -71,8 +85,5 @@ class Pawn < Piece
     else
       return false
     end
-          
-    # puts "diff row" + diff_row.to_s
-    # puts "diff col" + diff_col.to_s
   end
 end
