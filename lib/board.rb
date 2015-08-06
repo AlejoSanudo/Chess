@@ -13,7 +13,7 @@ class Board
        @board[1][4]  = test_pawn
     else
       8.times {|i| @board[6][i] = Pawn.new('white')}
-      8.times {|i| @board[1][i] = Pawn.new('black')}
+      8.times {|i| @board[1]  [i] = Pawn.new('black')}
       2.times {|i| @board[7][i*7] = Rook.new('white')}
       2.times {|i| @board[0][i*7] = Rook.new('black')}
       2.times {|i| @board[7][i*5+1] = Knight.new('white')}
@@ -42,5 +42,20 @@ class Board
     end
     board[0..-33]
   end
+
+  # def valid_input?(user_input)    
+  # user_input =~ /^[a-h][1-8]$/ ? true : false
+  # end
+
+  def get_pieces(piece_type)
+    board_arr = @board.flatten
+    pieces_found = board_arr.map do |piece|
+      if piece && piece.instance_of?(piece_type)
+        piece
+      end
+    end 
+    return pieces_found.compact.length 
+  end
+
 end
 

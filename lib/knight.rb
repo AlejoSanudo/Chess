@@ -8,3 +8,4 @@ class Knight < Piece
 
   def valid_movement?(board, beg_row, beg_col, end_row, end_col); end
 end
+
