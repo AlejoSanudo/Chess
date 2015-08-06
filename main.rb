@@ -2,6 +2,7 @@ require './Piece'
 require './methods'
 require './Board'
 require 'pry'
+require './spec/spec_helper'
 
 #pseudoCode
 #test validity of A

@@ -14,7 +14,7 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
-
+require 'rspec'
 require_relative '../Piece'
 require_relative '../Pawn'
 require_relative '../Rook'
@@ -23,7 +23,7 @@ require_relative '../Knight'
 require_relative '../Queen'
 require_relative '../King'
 require_relative '../Board'
-
+require_relative '../methods'
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
