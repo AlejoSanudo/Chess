@@ -10,20 +10,24 @@
 # individual file that may not need all of that loaded. Instead, consider making
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
-# it.
+# it. 
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 require 'rspec'
-require_relative '../Piece'
-require_relative '../Pawn'
-require_relative '../Rook'
-require_relative '../Bishop'
-require_relative '../Knight'
-require_relative '../Queen'
-require_relative '../King'
-require_relative '../Board'
-require_relative '../methods'
+require 'pry'
+
+require_relative '../lib/piece'
+require_relative '../lib/pawn'
+require_relative '../lib/rook'
+require_relative '../lib/bishop'
+require_relative '../lib/knight'
+require_relative '../lib/queen'
+require_relative '../lib/king'
+require_relative '../lib/board'
+# require_relative '../lib/main'
+require_relative '../lib/methods'
+require_relative '../lib/test'
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -51,6 +55,7 @@ RSpec.configure do |config|
   end
 
   config.color = true
+  config.add_formatter 'documentation'
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin

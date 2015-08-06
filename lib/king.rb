@@ -1,4 +1,3 @@
-require './Piece'
 class King < Piece
   attr_accessor :icon
 

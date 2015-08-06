@@ -1,8 +1,6 @@
-class Chess
   def valid_input?(user_input)    
     user_input =~ /^[a-h][1-8]$/ ? true : false
   end
-
   def get_row(user_input)
     user_input[1].to_i - 1
   end
@@ -24,5 +22,3 @@ class Chess
   def valid_piece?(row, col, board, color)
     (board[row][col] != " ") && (board[row][col].color == color)
   end
-end
-

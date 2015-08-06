@@ -4,6 +4,11 @@ class Piece
   def initialize(color)
     @color = color
   end
+
+  def is_same_team?(piece)
+  	return piece.color == self.color unless !piece.is_a?(Piece)
+  	false
+  end
 end
 
 # ###############
